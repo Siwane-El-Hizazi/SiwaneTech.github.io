@@ -11,7 +11,7 @@ greetings = ["مرحبا","اهلا","هاي"]
 whoAreYou = ["ماذا" , "ما" ]
 botName = "billy"
 
-@bot.message_handler(commands=["إبدأ","مساعدة"])
+@bot.message_handler(commands=["start","help"])
 def welcome(message):
     bot.send_message(message.chat.id,"مرحبا في بوت مدونة صِوان")
 
