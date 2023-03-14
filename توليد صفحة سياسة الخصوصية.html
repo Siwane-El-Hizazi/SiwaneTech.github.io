@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>صفحة سياسة الخصوصية</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+<body>
+<div class="generator">
+    <div class="generator__questions">
+        <div class="content">
+          <center><h1>منشئ سياسة الخصوصية</h1></center>
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiWTcMGfcAD7xKaFYpq4Dio5ZLNZRdaGx70bBboyiwizy90oxlucspRzfnDyRpdyVig_wxOlvA48LuYmZ9eBN1_rjYM6Z_eWEecNTxZKoDeHAdvOQNNvmP66fAiuIPxt9wVB9MGguZpJr11aisyUnZfJtbOhC8hgtk13LnVNNN-HExoAQOXIYm-U_hqmQ/s1600/undraw_term_sheet_re_ju7s.png" alt="Privacy Policy Generator">
+          <center><h3>تفاصيل الموقع</h3></center>
+            <div class="generator__questions">
+    <div class="cArea">
+        <label>
+            <input class="cInpt cName" id="company" type="text" placeholder="اسم الشركة">
+            <i class="fa fa-building"></i>
+        </label>
+        <p class="error-msg" id="company-error" style="display:none;">اسم الشركة مطلوب</p>
+    </div>
+</div>
+            <div class="generator__questions">
+    <div class="cArea">
+        <label>
+            <input class="cInpt cName" id="WebName" type="text" placeholder="اسم الموقع">
+            <i class="fa fa-globe"></i>
+        </label>
+        <p class="error-msg" id="name-error" style="display:none;">مطلوب اسم موقع الويب</p>
+    </div>
+</div>
+            <div class="generator__questions">
+    <div class="cArea">
+        <label>
+            <input class="cInpt cName" id="WebUrl" type="text" placeholder="رابط الموقع">
+            <i class="fa fa-link"></i>
+        </label>
+        <p class="error-msg" id="url-error" style="display:none;">ارتباط موقع الويب غير صالح</p>
+    </div>
+</div>
+            <div class="generator__questions">
+    <div class="cArea">
+        <label>
+            <input class="cInpt cName" id="email" type="email" placeholder="عنوان البريد الإلكتروني">
+            <i class="fa fa-envelope"></i>
+        </label>
+        <p class="error-msg" id="email-error" style="display:none;">عنوان البريد الإلكتروني غير صحيح</p>
+    </div>
+</div>
+            <div class="generator__questions">
+    <div class="cArea">
+        <label>
+            <input class="cInpt cName" id="contact" type="text" placeholder="رابط الاتصال">
+            <i class="fa fa-link"></i>
+        </label>
+        <p class="error-msg" id="contact-error" style="display:none;">رابط الاتصال غير صالح</p>
+    </div>
+</div>
+          
+            <div class="generator__questions">
+            
+    <div class="cArea">
+        <label>
+            <input class="cInpt cName" id="date" type="text" placeholder="تاريخ الإنشاء">
+            <i class="fa fa-calendar-alt"></i>
+        </label>
+        <p class="error-msg" id="date-error" style="display:none;">التاريخ غير صحيح</p>
+    </div>
+
+</div>
+      <div class="generator__questions" style="text-align: center;">
+                <div class="generate-markup">
+                    <a class="button">يولد</a>
+                    <a class="button" id="clear-button">واضح</a>
+                </div>
+            </div>
+        </div><br><br>
+        <div class="content">
+            <div class="generator__markup">
+                <h3 style="text-align: center;">كودك الذي تم إنشاؤه</h3>
+                <pre><p id="p2"><code id="generator__markup-generated"></code></p></pre>
+                <center>
+                  <div onclick="copyToClipboard()"><a class="button">انقر لنسخ</a></div>
+                  <div><a id="downloadButton" class="button">تحميل</a></div>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">    //<![CDATA[
+const generate = document.querySelector('.generate-markup');
+generate.addEventListener('click', () => {
+const Company = document.querySelector('#company').value;
+const WebsiteName = document.querySelector('#WebName').value;
+const WebUrl = document.querySelector('#WebUrl').value;
+const email = document.querySelector('#email').value;
+const ContactLink = document.querySelector('#contact').value;
+const date = document.querySelector('#date').value;
+const markupContainer = document.querySelector('#generator__markup-generated');
+const markup = 
+`<p>اخر تحديث: ${date} </p>
+<h2>مرحبًا بالمستخدم:</h2>
+<p style="text-align: justify;">تصف سياسة الخصوصية هذه سياساتنا وإجراءاتنا المتعلقة بجمع معلوماتك واستخدامها والكشف عنها عند استخدامك للخدمة وتخبرك بحقوق الخصوصية الخاصة بك وكيف يحميك القانون. نحن نستخدم بياناتك الشخصية لتقديم و
+    تحسين الخدمة. باستخدام الخدمة ، فإنك توافق على جمع واستخدام المعلومات باتباع سياسة الخصوصية هذه.</p>
+<h2>تعريفات:</h2>
+<ul style="text-align: justify;">
+    <li>الحساب يعني حسابًا فريدًا تم إنشاؤه لك للوصول إلى خدمتنا أو أجزاء من خدمتنا.</li>
+    <li>الشركة (يشار إليها إما باسم الشركة أو نحن أو لنا أو لدينا في هذه الاتفاقية) ${Company}.</li>
+    <li>ملفات تعريف الارتباط هي ملفات صغيرة توضع على أجهزتك توفر معلومات حول محفوظات الاستعراض الخاصة بك.</li>
+    <li>البيانات الشخصية هي أي معلومات تتعلق بفرد محدد أو يمكن التعرف عليه.</li>
+    <li>يشير الموقع إلى ${WebsiteName} الذي يقع في ${WebUrl} اِختِصاص.</li>
+</ul>
+<h2>جمع واستخدام البيانات:</h2>
+<p style="text-align: justify;">أثناء استخدام خدمتنا ، قد نطلب منك تزويدنا بمعلومات تعريف شخصية معينة يمكن استخدامها للاتصال بك أو التعرف عليك. قد تتضمن بيانات الاستخدام معلومات مثل عنوان IP لجهازك ، ونوع المتصفح ، وإصدار المتصفح ، و
+    صفحات خدمتنا التي تزورها ، ووقت وتاريخ زيارتك ، والوقت الذي تقضيه في تلك الصفحات ، ومعرفات الجهاز الفريدة ، وبيانات التشخيص الأخرى.</p>
+<h2 style="text-align: justify;">تقنيات التتبع:</h2>
+<p style="text-align: justify;">نستخدم بعض أدوات التتبع مثل تحليلات جوجل ووحدة تحكم البحث لجمع معلومات حول متصفحك ، وعرض التاريخ ، والنقرات ، والمدة الزمنية على موقعنا لتحسين خدماتنا وموقعنا الإلكتروني. هذه البيانات هي فقط لتحليل حركة المرور على موقعنا
+    والأداء. لا يمكننا مشاركة هذه المعلومات مع أدوات أو شركات خارجية أخرى.</p>
+<h2>استخدام بياناتك الشخصية:</h2>
+<p style="text-align: justify;">نقوم فقط بتخزين اسمك والبريد الإلكتروني ومعلومات المتصفح وملفات تعريف الارتباط وسجل موقعنا الإلكتروني. سيتم استخدام هذه المعلومات لهذه الأعمال:</p>
+<ul style="text-align: justify;">
+    <li>تحسين تجربة موقعنا وتحديث خدماتنا وموادنا.</li>
+    <li>تحليل حركة المرور على موقعنا والأداء لتحديث الموقع.</li>
+    <li>لإدارة المستخدمين والتحقق من هويتك لوقف البريد العشوائي.</li>
+    <li>تحسين إدارة الإعلانات لدينا وتحليل الأرباح.</li>
+    <li>لتحديد عناوين URL والمنشورات والمواد الشائعة على مواقعنا الإلكترونية ووسائل التواصل الاجتماعي.</li>
+</ul>
+<h2 style="opacity: 0; font-size: 2px; color: transparent;"><a rel="dofollow" href="https://www.siwane.xyz">Siwane</a></h2>
+<h2>تقاسم البيانات:</h2>
+<p style="text-align: justify;">نحن لا نشارك بيانات المستخدم الخاصة بنا في الحالات العادية ولكن إذا كانت البيانات ضرورية لأي سبب أو لمقدمي الخدمة حتى نتمكن من مشاركة بياناتك التي تتضمن اسم المستخدم وعنوان البريد الإلكتروني وعنوان IP وسجل التصفح. يتم أيضًا تخزين بياناتك في
+    تخزين البيانات بأمان ويمكن للمؤلف فقط الوصول لرؤية هذه البيانات. لا يمكننا تخزين بياناتك بعد حذف حسابك أو بعد طلبك لحذف البيانات.</p>
+<h2 style="text-align: justify;">أمان بياناتك الشخصية:</h2>
+<p style="text-align: justify;">أمان بيانات المستخدم هو أولويتنا الأولى ونحن نولي أهمية كبيرة لجعل بياناتك آمنة على الإنترنت. نحن نستخدم أمانًا قويًا مبرمجًا وتخزين بيانات Firebase لتخزين بياناتك الشخصية. Firebase قاعدة بيانات سريعة وآمنة تمامًا
+    خدمة تؤمن بياناتك من الصيد أو مرسلي البريد العشوائي. لكن لا يمكننا ضمان أمنها المطلق.</p>
+<h2>خصوصية الأطفال:</h2>
+<p style="text-align: justify;">لا تخاطب خدمتنا أي شخص يقل عمره عن 13 عامًا. نحن لا نجمع عن قصد معلومات تعريف شخصية من أي شخص يقل عمره عن 13 عامًا. إذا كنت أحد الوالدين أو وصيًا وكنت على علم بأن طفلك قد زودنا ببيانات شخصية ،
+    الرجاء التواصل معنا. إذا علمنا أننا قد جمعنا بيانات شخصية من أي شخص يقل عمره عن 13 عامًا دون التحقق من موافقة الوالدين ، فإننا نتخذ خطوات لإزالة هذه المعلومات من خوادمنا. إذا احتجنا إلى الاعتماد على الموافقة كقانون
+    أساسًا لمعالجة معلوماتك ويطلب بلدك موافقة أحد الوالدين ، قد نطلب موافقة والديك قبل أن نجمع هذه المعلومات ونستخدمها.</p>
+<h2>روابط لمواقع أخرى</h2>
+<p style="text-align: justify;">تحتوي خدماتنا وموادنا على بعض روابط مواقع الجهات الخارجية لتزويدك بالمعلومات. لكن هذا الموقع لا يتم التحكم فيه من قبلنا. نحن نحاول إعطاء الروابط بعد مراجعتها ولكن إذا واجهتك أي مشكلة أو صيد من موقع آخر فنحن لسنا مسؤولين
+    لذلك. لقد اقترحنا عليك أولاً مراجعة سياسة مواقع الجهات الخارجية التي قدمناها لنا.</p>
+<h2>اتصل بنا:</h2>
+<p style="text-align: justify;">اسم: ${WebsiteName} <br>موقع: ${WebUrl} <br>بريد إلكتروني: ${email}</p>
+<div style="display:flex;justify-content: center;margin: 20px 0;"><a href="${ContactLink}" style="display:inline-flex;align-items:center;text-decoration:none;padding:12px 15px;margin:0 20px;outline:0;border-radius:50px;line-height:20px;color:#fffdfc;background:#299e94;font-size:14px;max-width:320px;">اتصل بنا</a></div>`;
+  if(Company.length > 0 && WebsiteName.length > 0 && WebUrl.length > 0 && email.length > 0 && ContactLink.length > 0){
+    markupContainer.textContent = markup;
+    toastNotif("تم توليد الكود الناجح");
+  }
+  if(Company.length == 0){
+    document.getElementById("company-error").style.display = "block";
+    }
+  else{
+    document.getElementById("company-error").style.display = "none";
+  }
+  if(WebsiteName.length == 0){
+    document.getElementById("name-error").style.display = "block";
+    }
+  else{
+    document.getElementById("name-error").style.display = "none";
+  }
+  if(WebUrl.length == 0){
+    document.getElementById("url-error").style.display = "block";
+    }
+  else{
+    document.getElementById("url-error").style.display = "none";
+  }
+  if(email.length == 0){
+    document.getElementById("email-error").style.display = "block";
+    }
+  else{
+    document.getElementById("email-error").style.display = "none";
+  }
+  if(ContactLink.length == 0){
+    document.getElementById("contact-error").style.display = "block";
+    }
+  else{
+    document.getElementById("contact-error").style.display = "none";
+  }
+});
+ 
+function verification(){
+  if (window.location.hostname !== "repo.siwane.xyz" && window.location.hostname !== "siwane.xyz"){
+    window.top.location.href = 'https://repo.siwane.xyz'; 
+  }
+}
+window.onload = verification();
+
+const downloadButton = document.querySelector('#downloadButton');
+downloadButton.addEventListener('click', () => {
+const fileName = "Privacy_Policy_" + document.getElementById("WebName").value;
+const content = document.getElementById("p2").textContent;
+
+const element = document.createElement("a");
+element.setAttribute("href", "data:text/html;charset=utf-8," + encodeURIComponent(content));
+element.setAttribute("download", fileName + ".html");
+element.style.display = "none";
+document.body.appendChild(element);
+element.click();
+document.body.removeChild(element);
+});
+  
+document.getElementById("clear-button").addEventListener("click", function() {
+  document.getElementById("company").value = "";
+  document.getElementById("WebName").value = "";
+  document.getElementById("WebUrl").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("contact").value = "";
+  document.getElementById("date").value = "";
+});
+  
+flatpickr("#date", {
+    altInput: true,
+    altFormat: "F j, Y",
+    dateFormat: "Y-m-d",
+  });  
+  
+function mySecond(){
+function showMessage() { alert('سيتم إزالة الموقع وسيتم وضع النطاق في القائمة السوداء لانتهاك حقوق النشر نتيجة لاستخدام هذا الموقع لموارد صوان المحدودة دون إذن.'); }
+if (window.location.hostname !== "repo.siwane.xyz" && window.location.hostname !== "siwane.xyz") {
+  showMessage();
+  window.top.location.href = 'https://repl.siwane.xyz';
+}}
+function myThird(){function include(file) {
+  var script  = document.createElement('script');
+  script.src  = file;
+  script.type = 'text/javascript';
+  script.defer = true;
+  document.getElementsByTagName('head').item(0).appendChild(script); 
+}
+include('https://cdn.jsdelivr.net/gh/AnonymousXetra/xetron@1.1/files/codes/generators.importantscript.min.js');}
+  
+function myLicense() { if (window.location.hostname !== "www.siwane.xyz" && window.location.hostname !== "siwane.xyz"){mySecond();} else {myThird();copyToClipboard(element);}}
+myLicense();
+
+function copyToClipboard(element) {
+const copyText = document.getElementById("p2").textContent;
+  const textArea = document.createElement('textarea');
+  textArea.textContent = copyText;
+  document.body.append(textArea);
+  textArea.select();
+  document.execCommand("نسخ");
+  textArea.remove();
+  toastNotif("تم نسخ الكود بنجاح");
+}    
+  
+  //]]>
+</script>
+
+<style>
+  .widget input[type=text],
+    .widget input[type=email],
+    .widget textarea {
+        padding: 10px;
+        border: 1px solid rgba(0, 0, 0, .25);
+        border-radius: 5px;
+    }
+  .content{
+    position:relative;
+    padding: 25px 50px;
+    border: 1px solid var(--contentL);
+    border-radius: 5px;
+  }
+  .content::before{
+    content: '';
+    width: 50%;
+    height: 20px;
+    position: absolute;
+    z-index: 0;
+    background: var(--notifU);
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 0 0 20px 20px;
+  }
+  .content::after{
+    content: '';
+    width: 50%;
+    height: 20px;
+    position: absolute;
+    z-index: 0;
+    background: var(--notifU);
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 20px 20px 0 0;
+  }
+  .drK .content{
+     background: #2d2d30;
+  }
+  .generator__questions{
+    margin: 15px 0;
+  }
+  .error-msg{
+    font-size: 12px;
+    height: fit-content;
+    margin: 0px 2px !important;
+    color: var(--synxRed);
+  }
+  a {
+    cursor: pointer;
+  }
+  code{
+    background: none;
+    padding: 0;
+  }
+  pre, .cmC i[rel=pre]{
+    padding: 5px 25px;
+    min-height: 100px;
+  }
+.pTtl.itm {display: none;}
+</style>
+<style>
+  .cArea i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--linkC);
+  }
+  
+  .drK .cArea i {color: var(--darkU);}
+</style>
+</body>
+</html>
