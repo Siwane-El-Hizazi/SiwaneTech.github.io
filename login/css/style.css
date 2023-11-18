@@ -1,0 +1,556 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+/* ========== Default Variable ==========*/
+
+:root {
+    --main-font: "Quicksand", sans-serif;
+
+    --first-color: rgb(56, 189, 248);
+    --second-color: rgb(59, 130, 246);
+    --third-color: rgb(139, 92, 246);
+
+    --light-color: rgb(245, 245, 245);
+    --dark-color: rgb(15, 23, 42);
+    --glass-color: rgb(234, 240, 240);
+
+    --white-smoke: rgb(245, 248, 250);
+    --gray-color: rgb(51, 65, 85);
+    --sky-color: rgb(56, 189, 248, 0.1);
+
+    --theme-first: rgb(10, 12, 26);
+
+    --shadow-1: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    --shadow-2: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    --shadow-3: rgba(255, 255, 255, 0.02) 0px 1px 3px 0px, rgb(255, 255, 255, 0.15) 0px 0px 0px 1px;
+}
+
+
+
+
+
+/* ========== Web Default Styles ==========*/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Quicksand", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: var(--light-color);
+}
+
+a {
+    cursor: pointer;
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--light-color);
+    z-index: 99;
+}
+
+#loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #9370DB;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+#loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #BA55D3;
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+}
+
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #FF00FF;
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+
+.modeBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    border-radius: 10px;
+    z-index: 99;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    color: var(--first-color);
+    background: var(--light-color);
+}
+
+.deactive{
+    bottom: -100% !important;
+}
+
+.notification{
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 7px;
+    z-index: 999;
+    transition: all 0.8s ease;
+    box-shadow: var(--shadow-1);
+    background: var(--light-color);
+}
+
+
+
+
+
+/* ========== Form Container Styles ==========*/
+
+.wrapper{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.form-container {
+    position: absolute;
+    display: flex;
+    font-size: 18px;
+}
+
+.form-box {
+    min-width: 50%;
+    height: 100%;
+    z-index: 2;
+    padding: 40px;
+    border-radius: 7px;
+    box-shadow: var(--shadow-1);
+    backdrop-filter: blur(5px);
+    background: rgb(56, 189, 248, 0.1);
+}
+
+.form-box form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: center;
+    max-width: 360px;
+    margin: auto;
+}
+
+.sign-in-box {
+    margin-right: 10px;
+}
+
+.sign-up-box {
+    margin-left: 10px;
+}
+
+.form-box h2 {
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    margin: 10px 0 30px 0;
+}
+
+.form-box .field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    opacity: 0.8;
+    border-bottom: 2px solid var(--dark-color);
+}
+
+.form-box .field.active {
+    opacity: 1;
+    transition: 0.3s ease;
+    border-bottom: 2px solid var(--first-color);
+}
+
+.form-box .field input {
+    width: 100%;
+    font-size: 17px;
+    font-weight: 700;
+    padding-bottom: 6px;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.form-box .field i {
+    font-size: 22px;
+    font-weight: 500;
+    margin-right: 10px;
+    padding-bottom: 4px;
+    opacity: 0.9;
+}
+
+.eye-btn i:hover {
+    cursor: pointer;
+    transition: 0.3s ease;
+    color: var(--first-color);
+}
+
+.forgot-link {
+    text-align: right;
+    transform: translateY(-10px);
+    margin-bottom: 20px;
+}
+
+.forgot-link a {
+    color: var(--first-color);
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.submit-btn {
+    justify-self: center;
+    width: 120px;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px 30px;
+    margin: 20px auto;
+    border-radius: 7px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    background: var(--first-color);
+}
+
+.submit-btn:hover {
+    transform: scale(1.05);
+}
+
+.submit-btn:active {
+    transform: scaleZ(1.05);
+}
+
+.login-options {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-options .text {
+    font-size: 12px;
+    font-weight: 700;
+    margin: 25px 0;
+    opacity: 0.8;
+}
+
+.other-logins {
+    display: flex;
+}
+
+.other-logins a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 11px 32px;
+    margin: 0 10px;
+    border-radius: 7px;
+    opacity: 0.8;
+    transition: border 0.3s ease;
+    box-shadow: var(--shadow-2);
+}
+
+.other-logins a:hover {
+    opacity: 1;
+}
+
+.other-logins a img {
+    width: 18px;
+}
+
+.imgBox {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 40px;
+    border-radius: 7px;
+    z-index: 1;
+    background: var(--sky-color);
+    backdrop-filter: blur(5px);
+    box-shadow: var(--shadow-1);
+}
+
+.imgBox img {
+    max-width: 300px;
+}
+
+.sliding-link {
+    display: flex;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.sliding-link p {
+    margin: 0;
+}
+
+.sliding-link span {
+    font-weight: 700;
+    margin-left: 5px;
+    cursor: pointer;
+    color: var(--first-color);
+}
+
+.sign-in-form.hide .sign-in-box {
+    visibility: hidden;
+    transform: translatex(100%);
+}
+
+.sign-in-form.hide .sign-in-imgBox {
+    visibility: hidden;
+    transform: translatex(-100%);
+}
+
+.sign-in-form.show .sign-in-imgBox,
+.sign-in-form.show .sign-in-box {
+    visibility: visible;
+    transform: translateX(0);
+    transition: 0.5s ease;
+}
+
+.sign-up-form .sign-up-imgBox {
+    visibility: hidden;
+    transform: translatex(100%);
+}
+
+.sign-up-form .sign-up-box {
+    visibility: hidden;
+    transform: translatex(-100%);
+}
+
+.sign-up-form.show .sign-up-imgBox,
+.sign-up-form.show .sign-up-box {
+    visibility: visible;
+    transform: translatex(0);
+    transition: 0.5s ease;
+}
+
+
+
+
+
+/* ========== Dark Mode Styles ==========*/
+
+.profile{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.profile .user-name{
+    font-size: 34px;
+    font-weight: 700;
+    text-align: center;
+    margin: 25px 0;
+}
+
+.profile .user-details{
+    font-size: 18px;
+    font-weight: 700;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 7px;
+    z-index: 98;
+    box-shadow: var(--shadow-1);
+    background: var(--sky-color);
+}
+
+.profile .user-details div{
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    margin: 15px;
+    border-radius: 7px;
+    box-shadow: var(--shadow-2);
+}
+
+.profile .user-details div i{
+    height: 100%;
+    font-size: 22px;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.profile .buttons{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.profile .buttons .btn{
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 7px;
+    transition: all 0.5s;
+    color: var(--dark-color);
+    background: var(--first-color);
+}
+
+.profile .btn:hover {
+    transform: scale(1.05);
+}
+
+.profile .btn:active {
+    transform: scaleZ(1.1);
+}
+
+
+
+
+/* ========== Dark Mode Styles ==========*/
+
+.dark {
+    color: var(--light-color);
+    background: var(--theme-first);
+}
+
+.dark #preloader{
+    background: var(--dark-color);
+}
+
+.dark .modeBtn {
+    background: var(--dark-color);
+}
+
+.dark .form-box .field {
+    border-bottom: 2px solid var(--light-color);
+}
+
+.dark .form-box .field.active {
+    border-bottom: 2px solid var(--first-color);
+}
+
+.dark .form-box .field input {
+    color: var(--light-color);
+}
+
+.dark .other-logins a {
+    box-shadow: var(--shadow-3);
+}
+
+.dark .notification{
+    background: var(--dark-color);
+}
+
+.dark .profile .user-details div{
+    box-shadow: var(--shadow-3);
+}
+
+/* ========== Responsive Query Styles ==========*/
+
+@media screen and (max-width: 735px) {
+    .form-container {
+        top: 0;
+        flex-direction: column;
+        height: fit-content;
+        padding: 25px;
+    }
+
+    .form-box {
+        width: 100%;
+        margin: 0;
+    }
+
+    .imgBox {
+        width: 100%;
+        height: auto;
+        padding: 35px 35px 15px;
+        margin: 40px 0 0 0;
+    }
+
+    .imgBox img {
+        max-width: 45%;
+        min-width: 180px;
+    }
+
+    .sign-up-form {
+        flex-direction: column-reverse;
+    }
+}
